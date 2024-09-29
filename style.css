@@ -8,7 +8,7 @@ body, html {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: transparent; /* Remove default black background */
+    background-color: transparent; 
 }
 
 .bg-image {
@@ -58,7 +58,7 @@ p {
     width: 50px;
     height: 50px;
     position: relative;
-    margin: 0 auto 20px; /* Add bottom margin */
+    margin: 0 auto 20px;
 }
 .loader:before, .loader:after {
     content: "";
@@ -97,10 +97,10 @@ p {
 .particle {
     position: absolute;
     display: block;
-    background: rgba(255, 255, 150, 0.8); /* Yellowish glow */
+    background: rgba(255, 255, 150, 0.8);
     border-radius: 50%;
     animation: float 15s infinite, pulse 2s ease-in-out infinite;
-    box-shadow: 0 0 10px 2px rgba(255, 255, 150, 0.4); /* Soft glow effect */
+    box-shadow: 0 0 10px 2px rgba(255, 255, 150, 0.4); 
 }
 @keyframes float {
     0%, 100% { transform: translateY(0) translateX(0); }
@@ -124,7 +124,7 @@ canvas {
 
 #musicControl {
     position: fixed;
-    bottom: 80px; /* Increased to move it higher up */
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.6);
@@ -183,7 +183,7 @@ canvas {
     }
 
     #musicControl {
-        bottom: 120px; /* Adjusted for smaller screens */
+        bottom: 120px; 
         font-size: 12px;
         min-width: 100px;
         padding: 8px 16px;
@@ -212,7 +212,7 @@ canvas {
     }
 
     #musicControl {
-        bottom: 100px; /* Adjusted for even smaller screens */
+        bottom: 100px;
         font-size: 10px;
         min-width: 80px;
         padding: 6px 12px;
@@ -234,16 +234,16 @@ canvas {
     background-color: rgba(255, 255, 150, 0.3);
     border: 1px solid rgba(255, 255, 150, 0.5);
     color: #fff;
-    padding: 8px 16px; /* Increased padding */
+    padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    display: block; /* Change to block */
-    margin: 0 auto; /* Center the button */
-    border-radius: 4px; /* Add rounded corners */
+    display: block;
+    margin: 0 auto; 
+    border-radius: 4px; 
 }
 
 #nextButton:hover {
     background-color: rgba(255, 255, 150, 0.5);
-    transform: scale(1.05); /* Slight grow effect on hover */
+    transform: scale(1.05); 
 }
