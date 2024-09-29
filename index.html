@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-image"></div>
     <canvas id="bgCanvas"></canvas>
     <div class="particles">
         <span class="particle" style="top: 20%; left: 20%; width: 8px; height: 8px;"></span>
@@ -161,6 +162,19 @@
                 musicControl.textContent = "Enjoy the thrill";
             }
         });
+
+        // Add this new code at the end of the script
+        function loadBackgroundImage() {
+            const bgImage = document.querySelector('.bg-image');
+            const img = new Image();
+            img.src = 'assets/images/background-teaser.jpg';
+            img.onload = function() {
+                bgImage.classList.add('loaded');
+            };
+        }
+
+        // Call the function when the page loads
+        window.addEventListener('load', loadBackgroundImage);
     </script>
 </body>
 </html>
