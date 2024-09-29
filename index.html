@@ -17,9 +17,12 @@
         <span class="particle" style="top: 50%; left: 50%; width: 11px; height: 11px;"></span>
     </div>
     <div class="container">
-        <h1 id="title">Coming Soon</h1>
+        <div class="title-container">
+            <h1 id="title">Coming Soon</h1>
+        </div>
         <p id="description">My awesome portfolio is under construction. Stay tuned!</p>
         <div class="loader"></div>
+        <button id="nextButton">Next</button>
     </div>
 
     <audio id="backgroundMusic" loop>
@@ -35,23 +38,34 @@
     </div>
 
     <script>
-        const titles = ["Coming Soon", "Almost Ready", "Stay Tuned", "Exciting Things Ahead"];
+        const titles = [
+            "Building with Purpose",
+            "Solving real world problems ",
+            "Working on the UI - cuz looks matter",
+            "Don't forget to stay hydrated",
+            "End of loop"
+        ];
         const descriptions = [
-            "My awesome portfolio is under construction. Stay tuned!",
-            "I am putting the finishing touches on something amazing.",
-            "Great things take time. We're almost there!",
-            "Prepare to be amazed by our upcoming portfolio!"
+            "Transforming ideas into intuitive and impactful web solutions.",
+            "Creating meaningful projects that make a difference in people's lives.",
+            "Tackling complex challenges with creativity and perseverance.",
+            "Water water water... keeps me up",
+            "I need to restart the loop now"
         ];
 
         let currentIndex = 0;
 
-        document.getElementById('title').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % titles.length;
+        function updateTitleAndDescription() {
             document.getElementById('title').textContent = titles[currentIndex];
             document.getElementById('description').textContent = descriptions[currentIndex];
+        }
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % titles.length;
+            updateTitleAndDescription();
         });
 
-        // Add the following code for the interactive background
+
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
         let width, height, particles;
@@ -176,5 +190,63 @@
         // Call the function when the page loads
         window.addEventListener('load', loadBackgroundImage);
     </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent; /* Remove default background */
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            /* Add any other existing styles */
+        }
+
+        #nextButton {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #nextButton:hover {
+            background-color: #45a049;
+        }
+
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .bg-image.loaded {
+            opacity: 1;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
 </body>
 </html>

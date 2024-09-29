@@ -3,12 +3,12 @@ body, html {
     padding: 0;
     font-family: 'Arial', sans-serif;
     height: 100%;
-    background-color: #000; 
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: transparent; /* Remove default black background */
 }
 
 .bg-image {
@@ -58,7 +58,7 @@ p {
     width: 50px;
     height: 50px;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 20px; /* Add bottom margin */
 }
 .loader:before, .loader:after {
     content: "";
@@ -220,4 +220,29 @@ canvas {
     #musicAttribution {
         font-size: 7px;
     }
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#nextButton {
+    background-color: rgba(255, 255, 150, 0.3);
+    border: 1px solid rgba(255, 255, 150, 0.5);
+    color: #fff;
+    padding: 8px 16px; /* Increased padding */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block; /* Change to block */
+    margin: 0 auto; /* Center the button */
+    border-radius: 4px; /* Add rounded corners */
+}
+
+#nextButton:hover {
+    background-color: rgba(255, 255, 150, 0.5);
+    transform: scale(1.05); /* Slight grow effect on hover */
 }
