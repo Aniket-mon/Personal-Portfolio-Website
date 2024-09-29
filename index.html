@@ -161,15 +161,21 @@
                 isFirstClick = false;
                 setTimeout(() => {
                     fadeOutText(musicControl, () => {
-                        backgroundMusic.play();
-                        isMusicPlaying = true;
-                        musicControl.textContent = "Enjoy the thrill";
+                        musicControl.textContent = "Anyways...";
                         musicControl.style.opacity = 1;
+                        setTimeout(() => {
+                            fadeOutText(musicControl, () => {
+                                backgroundMusic.play();
+                                isMusicPlaying = true;
+                                musicControl.textContent = "Enjoy the thrill";
+                                musicControl.style.opacity = 1;
+                            });
+                        }, 1000);
                     });
-                }, 1000); // Changed from 2000 to 1000 milliseconds
+                }, 1000);
             } else if (isMusicPlaying) {
                 backgroundMusic.pause();
-                musicControl.textContent = "Do not click";
+                musicControl.textContent = "Play";
                 isMusicPlaying = false;
             } else {
                 backgroundMusic.play();
@@ -188,7 +194,7 @@
             if (isMusicPlaying) {
                 musicControl.textContent = "Enjoy the thrill";
             } else if (!isFirstClick) {
-                musicControl.textContent = "Do not click";
+                musicControl.textContent = "Play";
             }
         });
 
