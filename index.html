@@ -30,7 +30,7 @@
         Your browser does not support the audio element.
     </audio>
     
-    <button id="musicControl">Don't click</button>
+    <button id="musicControl">Do not click</button>
 
     <div id="musicAttribution">
         Music: <a href="https://www.bensound.com/free-music-for-videos" target="_blank">Bensound.com</a><br>
@@ -153,16 +153,29 @@
         const backgroundMusic = document.getElementById('backgroundMusic');
         const musicControl = document.getElementById('musicControl');
         let isMusicPlaying = false;
+        let isFirstClick = true;
 
         musicControl.addEventListener('click', () => {
-            if (isMusicPlaying) {
+            if (isFirstClick) {
+                musicControl.textContent = "Typical humans";
+                isFirstClick = false;
+                setTimeout(() => {
+                    fadeOutText(musicControl, () => {
+                        backgroundMusic.play();
+                        isMusicPlaying = true;
+                        musicControl.textContent = "Enjoy the thrill";
+                        musicControl.style.opacity = 1;
+                    });
+                }, 2000);
+            } else if (isMusicPlaying) {
                 backgroundMusic.pause();
-                musicControl.textContent = "Humans...";
+                musicControl.textContent = "Do not click";
+                isMusicPlaying = false;
             } else {
                 backgroundMusic.play();
                 musicControl.textContent = "Enjoy the thrill";
+                isMusicPlaying = true;
             }
-            isMusicPlaying = !isMusicPlaying;
         });
 
         musicControl.addEventListener('mouseover', () => {
@@ -174,10 +187,23 @@
         musicControl.addEventListener('mouseout', () => {
             if (isMusicPlaying) {
                 musicControl.textContent = "Enjoy the thrill";
-            } else {
+            } else if (!isFirstClick) {
                 musicControl.textContent = "Do not click";
             }
         });
+
+        function fadeOutText(element, callback) {
+            let opacity = 1;
+            const fadeEffect = setInterval(() => {
+                if (opacity > 0) {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeEffect);
+                    callback();
+                }
+            }, 50);
+        }
 
         // Add this new code at the end of the script
         function loadBackgroundImage() {
