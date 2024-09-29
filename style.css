@@ -124,8 +124,9 @@ canvas {
 
 #musicControl {
     position: fixed;
-    bottom: 70px;
-    right: 20px;
+    bottom: 80px; /* Increased to move it higher up */
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.6);
     color: #00ffaa;
     border: none;
@@ -136,6 +137,7 @@ canvas {
     transition: background-color 0.3s ease, color 0.3s ease;
     min-width: 120px; 
     white-space: nowrap; 
+    z-index: 10;
 }
 
 #musicControl:hover {
@@ -154,6 +156,7 @@ canvas {
     font-size: 10px;
     line-height: 1.4;
     text-align: center;
+    z-index: 9;
 }
 
 #musicAttribution a {
@@ -180,8 +183,7 @@ canvas {
     }
 
     #musicControl {
-        bottom: 60px;
-        right: 10px;
+        bottom: 120px; /* Adjusted for smaller screens */
         font-size: 12px;
         min-width: 100px;
         padding: 8px 16px;
@@ -210,8 +212,7 @@ canvas {
     }
 
     #musicControl {
-        bottom: 50px;
-        right: 5px;
+        bottom: 100px; /* Adjusted for even smaller screens */
         font-size: 10px;
         min-width: 80px;
         padding: 6px 12px;
